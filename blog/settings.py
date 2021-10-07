@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django-summernote',
+    'django_summernote',
 ]
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
