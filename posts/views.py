@@ -6,6 +6,7 @@ from django.db.models import Q, Count, Case, When
 from comentarios.forms import FormComentario
 from comentarios.models import Comentario
 from django.contrib import messages
+from django.db import connection
 
 
 class PostIndex(ListView):
@@ -17,6 +18,7 @@ class PostIndex(ListView):
     def get_queryset(self):
         # ordenando e filtrando
         qs = super().get_queryset()
+        qs = qs.select_related('categoria_post')  # otimizando queries relacionais
         qs = qs.order_by('-id').filter(publicado_post=True)
         qs = qs.annotate(
             num_comentarios=Count(
