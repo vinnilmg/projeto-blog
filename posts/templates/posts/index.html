@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load humanize %}
+{% load filters %}
 
 {% block titulo %} Início | Posts | {% endblock %}
 
@@ -29,7 +30,7 @@
                     <p class="card-text">
                         <small class="text-muted">
                             {{ post.data_post|naturalday|title }}
-                            | {{ post.num_comentarios }} comentário(s)
+                            | {{ post.num_comentarios|plural_comentarios }}
                             | {{ post.categoria_post }}
                         </small>
                     </p>
