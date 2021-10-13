@@ -28,6 +28,10 @@ ul.errorlist li {
     font-weight: bold;
 }
 
+.form-group textarea {
+    width: 100%;
+}
+
 /*
 @media (min-width: 48em) {
     .card-columns {
