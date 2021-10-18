@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block titulo %} {{ post.titulo_post|title }} | Posts | {% endblock %}
 
@@ -64,11 +65,13 @@
 
                  <!-- Exibe valores formulário -->
                 {% for visible_field in form.visible_fields %}
+                    <!--
                     <div class="form-group">
-                        <b>{{ visible_field.label_tag }}</b> <br>
-                        {{ visible_field }}
+                       <b>{{ visible_field.label_tag }}</b> <br>
                         {{ visible_field.errors }}
                     </div>
+                    -->
+                    {{ visible_field|as_crispy_field }}
                 {% endfor %}
 
                 {% include 'parciais/_messages.html' %}
